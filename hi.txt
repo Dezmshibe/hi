@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hi with a heart</title>
+    <style>
+        /* Minimal reset and full-screen centering */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #fef9f1;          /* very soft warm background */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            padding: 1rem;
+        }
+
+        .greeting {
+            font-size: clamp(4rem, 20vw, 10rem);
+            font-weight: 400;
+            color: #2e2e2e;
+            text-align: center;
+            line-height: 1.2;
+            word-break: break-word;
+            animation: gentlePulse 2s ease-in-out infinite;
+            /* subtle shadow for depth */
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        /* Heart emoji styling – slightly larger and with a soft glow */
+        .heart {
+            display: inline-block;
+            font-size: 1.2em;
+            filter: drop-shadow(0 4px 8px rgba(255, 100, 100, 0.2));
+            animation: softBeat 1.8s ease-in-out infinite;
+            transform-origin: center;
+        }
+
+        /* Tiny animations – keeps it alive but not distracting */
+        @keyframes gentlePulse {
+            0%, 100% { opacity: 0.95; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.02); }
+        }
+
+        @keyframes softBeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Respect reduced motion if the user prefers it */
+        @media (prefers-reduced-motion: reduce) {
+            .greeting, .heart {
+                animation: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="greeting">
+        hi <span class="heart" aria-hidden="true">❤️</span>
+    </div>
+</body>
+</html>
